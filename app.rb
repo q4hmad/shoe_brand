@@ -15,6 +15,12 @@ get("/") do
   erb(:index)
 end
 
+post("/") do
+  name = params.fetch("name")
+  @stores = Store.create({:name => name, :id => nil})
+  erb(:index)
+end
+
 get('/stores_update/:id/edit') do
   @stores = Store.find(params.fetch("id").to_i())
   erb(:store_edit)

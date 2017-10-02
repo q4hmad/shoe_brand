@@ -1,13 +1,15 @@
- <h1>Project Planner</h1>
+ <h1>Shoe Store</h1>
 
- <% if @stores.any?() %>
- <% @stores.each() do |store| %>
-  <li><%= store.name %> <a href="/stores/<%=store.id() %>/edit">Update store lists</a></li>
-<% end %>
 
 <br>
 <form action="/" method="post">
-  <label for="name">New project:</label>
+  <label for="name">New Store:</label>
   <input id="name" name="name" type="text">
   <button type="submit">Add Store</button>
 </form>
+
+<% if @stores.any?() %>
+<% @stores.each() do |store| %>
+ <li><%= store.name %> <a href="/stores/<%=store.id() %>/edit">Update stores list</a></li>
+<% end %>
+<% end %>
