@@ -1,0 +1,27 @@
+<h2>Store: <%= @stores.name %></h2>
+<br>
+<form action="/store_main" method="post">
+  <input id="store_id" name="store_id" type="hidden" value="<%= @stores.id() %>">
+  <label for="name">Add Store:</label>
+  <input id="name" name="name" type="text">
+  <button type="submit">Add</button>
+</form>
+<br>
+<% if @pstores.brands().any?() %>
+  <h4>All Brands:</h4>
+  <ul>
+    <% @stores.brands().each() do |brand| %>
+      <li><%= brand.name() %> </li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>There are no brands currently available at this store</p>
+<% end %>
+
+<div>
+  <br>
+  <button class="btn btn-default"><a href="/stores/<%= @stores.id() %>/edit">Edit Store</a></button>
+  <br>
+  <br>
+  <button class="btn btn-default"><a href="/">Home</a></button>
+</div>
